@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tu descarga está lista — [Nombre de tu marca]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream:      #fdf6e3;
+      --cream-dark: #f5edd8;
+      --gold:       #c9a84c;
+      --gold-light: #e8c96a;
+      --gold-dark:  #a07830;
+      --brown:      #3a2e1e;
+      --brown-mid:  #5a4420;
+      --brown-light:#7a5c1e;
+      --text:       #4a3a22;
+      --text-light: #9a8055;
+      --border:     #e5d4a3;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream-dark);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── BACKGROUND TEXTURE ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 10% 20%, rgba(201,168,76,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 80%, rgba(201,168,76,0.08) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes pulse-ring {
+      0%   { transform: scale(1); opacity: 0.6; }
+      70%  { transform: scale(1.15); opacity: 0; }
+      100% { transform: scale(1.15); opacity: 0; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-6px); }
+    }
+
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.30s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.60s; }
+    .delay-5 { animation-delay: 0.75s; }
+
+    /* ─── WRAPPER ─── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 32px;
+      display: block;
+    }
+
+    /* ─── HERO CARD ─── */
+    .hero-card {
+      background: linear-gradient(145deg, var(--brown) 0%, var(--brown-mid) 100%);
+      border-radius: 16px;
+      padding: 52px 44px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.07);
+    }
+    .hero-card::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 150px; height: 150px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.05);
+    }
+
+    .hero-icon-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+
+    .hero-icon-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.25);
+      animation: pulse-ring 2.5s ease-out infinite;
+    }
+
+    .hero-icon {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      position: relative;
+      z-index: 1;
+      animation: float 3s ease-in-out infinite;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201,168,76,0.18);
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 20px;
+      padding: 5px 18px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      max-width: 400px;
+      margin: 0 auto 32px;
+    }
+
+    /* ─── CTA BUTTON ─── */
+    .cta-btn {
+      display: inline-block;
+      padding: 18px 56px;
+      background: linear-gradient(270deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+      background-size: 300% 100%;
+      border-radius: 50px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brown);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(201,168,76,0.35);
+      animation: shimmer 3s linear infinite;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(201,168,76,0.5);
+    }
+
+    .cta-meta {
+      margin-top: 14px;
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.8px;
+    }
+
+    /* ─── MAIN CARD ─── */
+    .main-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .card-section {
+      padding: 32px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-section:last-child {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    /* ─── STEPS ─── */
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .step {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-top: 2px;
+    }
+
+    .step-body strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brown-light);
+      margin-bottom: 3px;
+    }
+
+    .step-body span {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* ─── BENEFITS ─── */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      background: var(--cream-dark);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .benefit-check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--brown);
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .benefit-item p {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .benefit-item p strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--brown-light);
+      margin-bottom: 2px;
+    }
+
+    /* ─── REVIEW ─── */
+    .review-card {
+      background: linear-gradient(135deg, #fffbee, #fdf3cc);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      position: relative;
+    }
+
+    .review-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      color: var(--gold);
+      line-height: 1;
+      position: absolute;
+      top: 12px;
+      left: 22px;
+      opacity: 0.5;
+    }
+
+    .review-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--brown-mid);
+      line-height: 1.65;
+      margin-bottom: 14px;
+      padding-left: 20px;
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+      padding-left: 20px;
+    }
+
+    .review-author {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-light);
+      letter-spacing: 0.5px;
+      padding-left: 20px;
+    }
+
+    /* ─── GUARANTEE ─── */
+    .guarantee {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 24px 28px;
+      background: var(--cream-dark);
+      border-radius: 12px;
+      border: 1.5px dashed var(--gold);
+    }
+
+    .guarantee-icon {
+      font-size: 40px;
+      flex-shrink: 0;
+    }
+
+    .guarantee-text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brown-light);
+      margin-bottom: 5px;
+    }
+
+    .guarantee-text p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* ─── UPSELL ─── */
+    .upsell-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 40px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .upsell-card .eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 10px;
+    }
+
+    .upsell-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 10px;
+    }
+
+    .upsell-card p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.7;
+      max-width: 420px;
+      margin: 0 auto 22px;
+    }
+
+    .upsell-btn {
+      display: inline-block;
+      padding: 14px 40px;
+      border: 2px solid var(--gold);
+      border-radius: 50px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--brown-light);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .upsell-btn:hover {
+      background: var(--gold);
+      color: var(--brown);
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      text-align: center;
+      padding-top: 12px;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--brown-light);
+      margin-bottom: 8px;
+    }
+
+    .footer p {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .footer a {
+      color: var(--gold-dark);
+      text-decoration: none;
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 14px auto;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 560px) {
+      .hero-card { padding: 40px 24px 36px; }
+      .hero-title { font-size: 28px; }
+      .card-section { padding: 24px 22px; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .upsell-card { padding: 28px 22px; }
+      .guarantee { flex-direction: column; text-align: center; }
+      .cta-btn { padding: 16px 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- BRAND -->
+  <div class="header fade-up">
+    <span class="brand-name">[Nombre de tu marca]</span>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="hero-card fade-up delay-1">
+    <div class="hero-icon-wrap">
+      <div class="hero-icon">📄</div>
+    </div>
+    <div class="hero-badge">✦ Tu compra fue confirmada ✦</div>
+    <h1 class="hero-title">¡Tu descarga<br>está lista!</h1>
+    <p class="hero-sub">
+      Gracias por confiar en nosotros. Hacé clic en el botón de abajo
+      y accedé a tu contenido de forma inmediata.
+    </p>
+    <a href="[LINK DIRECTO AL PDF EN GOOGLE DRIVE]" class="cta-btn" target="_blank">
+      ⬇ &nbsp;Descargar mi PDF ahora
+    </a>
+    <p class="cta-meta">Acceso instantáneo · Sin registro · Descarga segura</p>
+  </div>
+
+  <!-- ═══ MAIN CARD ═══ -->
+  <div class="main-card fade-up delay-2">
+
+    <!-- PASOS -->
+    <div class="card-section">
+      <p class="section-label">Cómo acceder</p>
+      <div class="steps-list">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Hacé clic en el botón de arriba</strong>
+            <span>Te abrirá Google Drive directamente. No necesitás una cuenta de Google para descargar.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Guardá el archivo en tu dispositivo</strong>
+            <span>En el ícono de descarga (↓) de Google Drive. Funciona en celular, tablet y computadora.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Abrí el PDF y empezá hoy mismo</strong>
+            <span>El contenido está ordenado para que veas resultados desde las primeras páginas.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENEFICIOS -->
+    <div class="card-section">
+      <p class="section-label">Lo que encontrarás adentro</p>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <p><strong>Beneficio 1</strong>Descripción corta del resultado que el cliente va a obtener.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <p><strong>Beneficio 2</strong>Orientado al resultado tangible, no al proceso.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-check">✓</div>
+          <p><strong>Beneficio 3</strong>Resuelve un dolor o frustración específica del cliente.</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-check">★</div>
+          <p><strong>Bonus incluido</strong>Un recurso extra que supera sus expectativas.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- REVIEW -->
+    <div class="card-section">
+      <p class="section-label">Lo que dicen nuestros clientes</p>
+      <div class="review-card">
+        <div class="review-quote">"</div>
+        <p class="review-text">
+          Apliqué lo del capítulo 2 el mismo día que lo descargué y los resultados
+          me sorprendieron. No esperaba algo tan completo y tan fácil de aplicar.
+        </p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-author">— María G., clienta verificada</p>
+      </div>
+    </div>
+
+    <!-- GARANTÍA -->
+    <div class="card-section">
+      <div class="guarantee">
+        <div class="guarantee-icon">🛡️</div>
+        <div class="guarantee-text">
+          <strong>Garantía de satisfacción de 7 días</strong>
+          <p>Si sentís que el contenido no fue lo que esperabas, escribinos y lo resolvemos.
+          Tu confianza es lo más importante para nosotros.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- ═══ END MAIN CARD ═══ -->
+
+  <!-- ═══ UPSELL ═══ -->
+  <div class="upsell-card fade-up delay-3">
+    <p class="eyebrow">✦ Oferta exclusiva para clientes ✦</p>
+    <h3>¿Querés ir un paso más allá?</h3>
+    <p>
+      Nuestros clientes que combinan este PDF con <strong>[nombre de otro producto]</strong>
+      obtienen resultados hasta 3 veces más rápido. Por ser cliente, tenés acceso
+      a un precio especial por tiempo limitado.
+    </p>
+    <a href="[LINK PRODUCTO COMPLEMENTARIO]" class="upsell-btn">Ver oferta exclusiva →</a>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="footer fade-up delay-4">
+    <p class="footer-brand">[Nombre de tu marca]</p>
+    <div class="footer-divider"></div>
+    <p>
+      ¿Tenés alguna duda? Escribinos a
+      <a href="mailto:hola@tumarca.com">hola@tumarca.com</a>
+    </p>
+    <p style="margin-top:6px;">
+      <a href="#">Instagram</a> &nbsp;·&nbsp;
+      <a href="#">Facebook</a> &nbsp;·&nbsp;
+      <a href="#">TikTok</a>
+    </p>
+    <p style="margin-top:14px;font-size:11px;color:#c0a870;">
+      Esta página es de uso exclusivo para clientes de [Tu Marca].<br>
+      © 2025 [Tu Marca]. Todos los derechos reservados.
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
