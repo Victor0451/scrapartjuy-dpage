@@ -807,10 +807,24 @@
     document.getElementById('link-facebook').href  = CONFIG.facebook;
     document.getElementById('link-tiktok').href    = CONFIG.tiktok;
 
-    // Leer el parámetro ?id= de la URL
-    var params = new URLSearchParams(window.location.search);
-    var id     = params.get('id');
-    var prod   = id ? PRODUCTOS[id] : null;
+    // Leer parámetros de la URL: ?id= (directo) o ?nombre= (desde el email)
+    var params  = new URLSearchParams(window.location.search);
+    var id      = params.get('id');
+    var nombre  = params.get('nombre');
+    var prod    = null;
+
+    if (id) {
+      prod = PRODUCTOS[id] || null;
+    } else if (nombre) {
+      var nombreNorm = nombre.trim().toLowerCase();
+      var claves = Object.keys(PRODUCTOS);
+      for (var i = 0; i < claves.length; i++) {
+        if (PRODUCTOS[claves[i]].nombre.trim().toLowerCase() === nombreNorm) {
+          prod = PRODUCTOS[claves[i]];
+          break;
+        }
+      }
+    }
 
     if (!prod) {
       // Producto no encontrado: mostrar pantalla de error
