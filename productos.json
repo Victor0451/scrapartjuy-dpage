@@ -26,6 +26,46 @@
       "testimonioAutor": "",
       "upsellNombre": "",
       "upsellLink": ""
+    },
+    "plants01": {
+      "nombre": "Colección SILVESTRE | Stickers GRANDES",
+      "linkDrive": "https://drive.google.com/file/d/1l-PotFnhSz_emGcLMWXp6J2c5YoJ12YZ/view?usp=drivesdk",
+      "contrasena": "Scrap1",
+      "beneficios": [],
+      "testimonio": "",
+      "testimonioAutor": "",
+      "upsellNombre": "",
+      "upsellLink": ""
+    },
+    "plants02": {
+      "nombre": "Colección SILVESTRE | Stickers CHICOS",
+      "linkDrive": "https://drive.google.com/file/d/1lmhusn-2Z9aRKTpVtoTcfEQf-yAmTW0q/view?usp=drivesdk",
+      "contrasena": "Scrap1",
+      "beneficios": [],
+      "testimonio": "",
+      "testimonioAutor": "",
+      "upsellNombre": "",
+      "upsellLink": ""
+    },
+    "letters01": {
+      "nombre": "Colección Letras y Números | Stickers GRANDES",
+      "linkDrive": "https://drive.google.com/file/d/16LBiQOaMeiCsYaSJ317D9swJo7KOkehT/view?usp=drivesdk",
+      "contrasena": "Scrap1",
+      "beneficios": [],
+      "testimonio": "",
+      "testimonioAutor": "",
+      "upsellNombre": "",
+      "upsellLink": ""
+    },
+    "letters02": {
+      "nombre": "Colección Letras y Números | Stickers CHICOS",
+      "linkDrive": "https://drive.google.com/file/d/1-Y4qkKpVXOunk1ET9NuiDfQ66eSbmlGT/view?usp=drivesdk",
+      "contrasena": "Scrap1",
+      "beneficios": [],
+      "testimonio": "",
+      "testimonioAutor": "",
+      "upsellNombre": "",
+      "upsellLink": ""
     }
   }
 }
