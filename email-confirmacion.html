@@ -1,0 +1,665 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¡Tu compra fue confirmada!</title>
+  <style type="text/css">
+    /* CLIENT-SPECIFIC RESETS */
+    #outlook a{padding:0;}
+    .ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+    .ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{line-height:100%;}
+    body,table,td,p,a,li,blockquote{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+    table,td{mso-table-lspace:0pt;mso-table-rspace:0pt;}
+    img{-ms-interpolation-mode:bicubic;}
+    body{margin:0;padding:0;}
+    img{border:0;height:auto;line-height:100%;outline:none;text-decoration:none;}
+    table{border-collapse:collapse !important;}
+    body,#bodyTable,#bodyCell{height:100% !important;margin:0;padding:0;width:100% !important;}
+
+    /* PAGE */
+    body,#bodyTable{ background-color:#f5edd8; }
+    #bodyCell{ padding:30px; border-top:4px solid #c9a84c; }
+    #templateContainer{ width:600px; }
+
+    /* TYPOGRAPHY */
+    h1{
+      color:#7a5c1e !important;
+      display:block;
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:28px;
+      font-weight:bold;
+      line-height:130%;
+      letter-spacing:normal;
+      margin:0 0 24px 0;
+      text-align:left;
+    }
+    h2{
+      color:#7a5c1e !important;
+      display:block;
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:18px;
+      font-weight:bold;
+      line-height:130%;
+      margin:0 0 12px 0;
+      text-align:left;
+    }
+    h3{
+      color:#8a6010 !important;
+      display:block;
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:15px;
+      font-weight:bold;
+      line-height:130%;
+      margin:0 0 10px 0;
+      text-align:left;
+    }
+
+    /* BODY */
+    #templateBody{
+      background-color:#fdf6e3;
+      border-radius:4px;
+      overflow:hidden;
+      border:1px solid #e8d9b5;
+    }
+
+    .bodyContent{
+      color:#4a3a22;
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:14px;
+      line-height:190%;
+      padding:36px 44px 28px 44px;
+      text-align:left;
+    }
+
+    .bodyContent a:link,.bodyContent a:visited{
+      color:#b8860b;
+      font-weight:normal;
+      text-decoration:underline;
+    }
+
+    .bodyContent img{
+      display:inline;
+      height:auto;
+      max-width:520px;
+    }
+
+    /* HEADER BANNER */
+    .header-banner{
+      background: #c9a84c;
+      padding:40px 44px 32px 44px;
+      text-align:center;
+    }
+
+    .header-badge{
+      display:inline-block;
+      background:rgba(255,255,255,0.2);
+      border:1px solid rgba(255,255,255,0.45);
+      border-radius:20px;
+      padding:5px 18px;
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      color:#fff;
+      margin-bottom:14px;
+    }
+
+    .header-title{
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:30px;
+      font-weight:bold;
+      color:#ffffff;
+      line-height:1.3;
+      margin:0 0 8px 0;
+      text-shadow:0 2px 6px rgba(100,70,0,0.2);
+    }
+
+    .header-sub{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:13px;
+      color:rgba(255,255,255,0.88);
+      margin:0;
+    }
+
+    /* GREETING BOX */
+    .greeting-box{
+      background:linear-gradient(135deg,#fdf0c8,#fbe8a4);
+      border-left:4px solid #c9a84c;
+      border-radius:0 6px 6px 0;
+      padding:18px 20px;
+      margin-bottom:28px;
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:15px;
+      color:#5a4015;
+      line-height:1.7;
+    }
+
+    /* ORDER TABLE */
+    .order-table{
+      width:100%;
+      border-collapse:collapse;
+      margin-bottom:8px;
+    }
+
+    .order-table .th-cell{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color:#8a6010;
+      padding:10px 10px 10px 10px;
+      border-bottom:2px solid #c9a84c;
+    }
+
+    .order-table .product-name-cell{
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:14px;
+      font-weight:700;
+      color:#3a2e1e;
+      padding:14px 10px;
+      border-bottom:1px solid #edd9a3;
+    }
+
+    .order-table .product-price-cell{
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:14px;
+      font-weight:400;
+      color:#5a4015;
+      padding:14px 10px;
+      border-bottom:1px solid #edd9a3;
+    }
+
+    .order-table .label-cell{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:12px;
+      color:#6a5535;
+      padding:10px 10px;
+      border-bottom:1px solid #edd9a3;
+    }
+
+    .order-table .value-cell{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:12px;
+      font-weight:700;
+      color:#5a4015;
+      padding:10px 10px;
+      border-bottom:1px solid #edd9a3;
+    }
+
+    .order-table .discount-cell{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:12px;
+      color:#7a8a30;
+      padding:10px 10px;
+      border-bottom:1px solid #edd9a3;
+    }
+
+    .order-table .discount-val{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:12px;
+      font-weight:700;
+      color:#7a8a30;
+      padding:10px 10px;
+      border-bottom:1px solid #edd9a3;
+    }
+
+    .order-table .total-label-cell{
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:16px;
+      font-weight:800;
+      color:#3a2e1e;
+      padding:18px 10px;
+      border-top:2px solid #c9a84c;
+      border-bottom:2px solid #c9a84c;
+    }
+
+    .order-table .total-val-cell{
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:18px;
+      font-weight:800;
+      color:#7a5c1e;
+      padding:18px 10px;
+      border-top:2px solid #c9a84c;
+      border-bottom:2px solid #c9a84c;
+    }
+
+    /* DIVIDER */
+    .divider{
+      border:none;
+      border-top:1px solid #e5d4a3;
+      margin:28px 0;
+    }
+
+    /* CTA BUTTON */
+    .cta-wrapper{
+      text-align:center;
+      padding:10px 0 20px 0;
+    }
+
+    .cta-btn{
+      display:inline-block;
+      padding:16px 48px;
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      text-decoration:none;
+      color:#ffffff;
+      background-color:#c9a84c;
+      border-radius:4px;
+    }
+
+    .cta-sub{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:11px;
+      color:#9a8055;
+      text-align:center;
+      margin-top:8px;
+      letter-spacing:0.5px;
+    }
+
+    /* DOWNLOAD BLOCK */
+    .download-block{
+      background:linear-gradient(135deg,#3a2e1e,#5a4420);
+      border-radius:6px;
+      padding:28px 28px;
+      margin:28px 0 16px 0;
+      text-align:center;
+    }
+
+    .download-block .dl-eyebrow{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:10px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#c9a84c;
+      margin-bottom:10px;
+    }
+
+    .download-block .dl-title{
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:20px;
+      color:#fdf6e3;
+      margin-bottom:10px;
+    }
+
+    .download-block .dl-desc{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:12px;
+      color:#d4b87a;
+      line-height:1.7;
+      margin-bottom:20px;
+    }
+
+    .dl-btn{
+      display:inline-block;
+      padding:14px 40px;
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      text-decoration:none;
+      color:#3a2e1e;
+      background-color:#e8c96a;
+      border-radius:4px;
+    }
+
+    .dl-note{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:10px;
+      color:#9a8060;
+      margin-top:10px;
+    }
+
+    /* BENEFITS */
+    .benefit-row td{
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:13px;
+      color:#4a3a22;
+      padding:6px 0;
+      line-height:1.6;
+      vertical-align:top;
+    }
+
+    .benefit-icon-cell{
+      width:28px;
+      padding-right:10px !important;
+    }
+
+    .benefit-dot{
+      display:inline-block;
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      background-color:#c9a84c;
+      text-align:center;
+      line-height:22px;
+      font-size:11px;
+      color:#fff;
+      font-weight:bold;
+    }
+
+    /* SHIPPING BOX */
+    .shipping-box{
+      background:#fffbee;
+      border:1px solid #e0cc90;
+      border-radius:6px;
+      padding:18px 20px;
+      margin-top:20px;
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:13px;
+      color:#5a4015;
+      line-height:1.75;
+    }
+
+    /* GUARANTEE */
+    .guarantee-box{
+      background:#fdf6e3;
+      border:1px dashed #c9a84c;
+      border-radius:6px;
+      padding:18px 20px;
+      margin:20px 0;
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:12px;
+      color:#6a5535;
+      line-height:1.7;
+      text-align:center;
+    }
+
+    /* FOOTER */
+    #templateFooter{ color:#9A9A9A; }
+
+    .footerContent{
+      background-color:#ede0bc;
+      border-top:1px solid #d9c898;
+      color:#7a6030;
+      font-family:Verdana,Geneva,sans-serif;
+      font-size:11px;
+      line-height:170%;
+      padding:24px 44px;
+      text-align:center;
+    }
+
+    .footerContent a:link,.footerContent a:visited{
+      color:#b8860b;
+      font-weight:normal;
+      text-decoration:underline;
+    }
+
+    .footer-brand{
+      font-family:Georgia,'Times New Roman',serif;
+      font-size:16px;
+      color:#7a5c1e;
+      margin-bottom:6px;
+    }
+
+    /* MOBILE */
+    @media only screen and (max-width: 480px){
+      body,table,td,p,a,li,blockquote{-webkit-text-size-adjust:none !important;}
+      body{width:100% !important;min-width:100% !important;}
+      #bodyCell{padding:10px !important;}
+      #templateContainer{max-width:600px !important;width:100% !important;}
+      h1{font-size:22px !important;line-height:120% !important;}
+      h2{font-size:18px !important;}
+      .header-title{font-size:22px !important;}
+      .bodyContent{font-size:15px !important;line-height:160% !important;padding:24px 20px !important;}
+      .header-banner{padding:28px 20px !important;}
+      .footerContent{padding:20px !important;font-size:12px !important;}
+    }
+  </style>
+</head>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+<center>
+<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+  <tr>
+    <td align="center" valign="top" id="bodyCell">
+      <table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
+        <tr>
+          <td align="center" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
+
+              <!-- ═══ HEADER BANNER ═══ -->
+              <tr>
+                <td class="header-banner">
+                  <p class="header-badge">✦ Pago confirmado ✦</p>
+                  <p class="header-title">¡Tu compra está lista!</p>
+                  <p class="header-sub">Tu pago fue acreditado — ya podés descargar tu contenido.</p>
+                </td>
+              </tr>
+
+              <!-- ═══ BODY ═══ -->
+              <tr>
+                <td valign="top" class="bodyContent">
+
+                  <h1>¡Todo listo para descargar! 🎉</h1>
+
+                  <!-- Greeting box -->
+                  <div class="greeting-box">
+                    Tu pago en <strong>{{store_name}}</strong> fue confirmado con éxito.
+                    Encontrás el botón de descarga de cada producto más abajo — el acceso es inmediato.
+                  </div>
+
+                  <!-- ─── ORDER TABLE ─── -->
+                  <!--[if (gte mso 9)|(IE)]>
+                  <table align="center" border="0" cellspacing="0" cellpadding="0" width="600"><tr><td>
+                  <![endif]-->
+                  <table class="order-table" border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                      <td width="65%" class="th-cell">Tu pedido</td>
+                      <td width="35%" class="th-cell">Orden: <strong>#{{order.id}}</strong></td>
+                    </tr>
+
+                    {% for product in order.products %}
+                    <tr>
+                      <td width="65%" class="product-name-cell">
+                        {{product.name ~ product.variationName}}
+                        &nbsp;<small style="font-weight:400;font-size:12px;color:#9a8055;">x {{product.quantity}}</small>
+                      </td>
+                      <td width="35%" class="product-price-cell">
+                        <strong>{{product.priceFormat}}</strong><br>
+                        <small style="font-size:11px;color:#9a8055;">c/u</small>
+                      </td>
+                    </tr>
+                    {% endfor %}
+
+                    {% for promotion in order.promotional_discount.promotions_applied %}
+                      {% if promotion.discount_script_type == "NAtX%off" %}
+                      <tr>
+                        <td width="65%" class="discount-cell">
+                          🏷 {{ promotion.selected_threshold.discount_decimal_percentage * 100 }}% OFF
+                          {% if promotion.scope_value_name %}en <strong>{{ promotion.scope_value_name }}</strong>{% endif %}
+                          — comprando {{ promotion.selected_threshold.quantity }} o más
+                        </td>
+                        <td width="35%" class="discount-val">-{{promotion.total_discount_amount_short}}</td>
+                      </tr>
+                      {% else %}
+                      <tr>
+                        <td width="65%" class="discount-cell">
+                          🏷 {% if promotion.discount_script_type == "CrossSelling" %}Descuento{% else %}Promoción <strong>{{ promotion.discount_script_type }}</strong>{% endif %}
+                          {% if promotion.scope_value_name %}en <strong>{{ promotion.scope_value_name }}</strong>{% endif %}
+                        </td>
+                        <td width="35%" class="discount-val">-{{promotion.total_discount_amount_short}}</td>
+                      </tr>
+                      {% endif %}
+                    {% endfor %}
+
+                    {% if order.shipping_pickup_type != 'non-shippable' %}
+                    <tr>
+                      <td width="65%" class="label-cell">
+                        {% if order.shipping_pickup_type == 'ship' %}Costo de envío{% else %}Costo de entrega{% endif %}
+                      </td>
+                      <td width="35%" class="value-cell">
+                        {% if order.show_shipping_price %}{% if order.shipping == 0 %}🎁 Gratis{% else %}{{order.shippingFormat}}{% endif %}{% else %}A convenir{% endif %}
+                      </td>
+                    </tr>
+                    {% endif %}
+
+                    {% if order.discountCoupon > 0 %}
+                    <tr>
+                      <td width="65%" class="discount-cell">🏷 Cupón <strong>{{order.coupon}}</strong></td>
+                      <td width="35%" class="discount-val">{{order.discountCouponFormat}}</td>
+                    </tr>
+                    {% endif %}
+
+                    {% if order.discountGateway > 0 %}
+                    <tr>
+                      <td width="65%" class="discount-cell">🏷 Descuento por <strong>{{order.paymentMethod}}</strong></td>
+                      <td width="35%" class="discount-val">{{order.discountGatewayFormat}}</td>
+                    </tr>
+                    {% endif %}
+
+                    <tr>
+                      <td width="65%" class="total-label-cell">TOTAL</td>
+                      <td width="35%" class="total-val-cell">{{order.totalFormat}}</td>
+                    </tr>
+                  </table>
+                  <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+
+                  <!-- ─── BOTONES DE DESCARGA (uno por producto) ─── -->
+                  <!--
+                    IMPORTANTE: el SKU de cada producto en Tienda Nube debe coincidir
+                    exactamente con la clave del catálogo en index.html (ej: "guia-finanzas").
+                    Así la URL queda: https://tu-proyecto.vercel.app?id=guia-finanzas
+                  -->
+                  {% for product in order.products %}
+                  <div class="download-block">
+                    <p class="dl-eyebrow">⬇ Producto digital</p>
+                    <p class="dl-title">{{product.name ~ product.variationName}}</p>
+                    <p class="dl-desc">
+                      Hacé clic en el botón para ir a tu página de descarga.<br>
+                      Sin registro, sin contraseñas — acceso inmediato.
+                    </p>
+                    <a href="https://scrapartjuy-dpage.vercel.app?id={{product.sku}}" class="dl-btn">
+                      ⬇ Descargar mi PDF ahora
+                    </a>
+                    <p class="dl-note">Acceso instantáneo · Sin registro · Descarga segura</p>
+                  </div>
+                  {% endfor %}
+
+                  <!-- ─── PASOS ─── -->
+                  <hr class="divider"/>
+                  <h2>¿Cómo guardar tu PDF?</h2>
+
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:20px;">
+                    <tr class="benefit-row">
+                      <td class="benefit-icon-cell"><span class="benefit-dot">1</span></td>
+                      <td style="font-family:Verdana,Geneva,sans-serif;font-size:13px;color:#4a3a22;padding:8px 0;line-height:1.6;">
+                        <strong style="color:#7a5c1e;">Hacé clic en el botón de descarga</strong><br>
+                        Te abre Google Drive directamente. No necesitás cuenta de Google.
+                      </td>
+                    </tr>
+                    <tr class="benefit-row">
+                      <td class="benefit-icon-cell"><span class="benefit-dot">2</span></td>
+                      <td style="font-family:Verdana,Geneva,sans-serif;font-size:13px;color:#4a3a22;padding:8px 0;line-height:1.6;">
+                        <strong style="color:#7a5c1e;">Guardá el archivo en tu dispositivo</strong><br>
+                        Usá el ícono de descarga (↓) de Google Drive. Funciona en celular, tablet y computadora.
+                      </td>
+                    </tr>
+                    <tr class="benefit-row">
+                      <td class="benefit-icon-cell"><span class="benefit-dot">3</span></td>
+                      <td style="font-family:Verdana,Geneva,sans-serif;font-size:13px;color:#4a3a22;padding:8px 0;line-height:1.6;">
+                        <strong style="color:#7a5c1e;">Abrilo y empezá hoy mismo</strong><br>
+                        Compatible con celular, tablet y computadora. Funciona sin conexión.
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- ─── ENVÍO (si aplica) ─── -->
+                  {% if order.shipping_pickup_type == 'non-shippable' %}
+                  {% elseif order.shipping_pickup_type == 'ship' %}
+                  <hr class="divider"/>
+                  <h3>📦 Datos de envío:</h3>
+                  <div class="shipping-box">
+                    Dirección: <strong>{{order.shipping_address}}</strong><br>
+                    {% if order.shipping_floor %}Piso: {{order.shipping_floor}}<br>{% endif %}
+                    {% if order.shipping_locality %}Localidad: {{order.shipping_locality}}<br>{% endif %}
+                    Ciudad: {{order.shipping_city}}<br>
+                    Código Postal: {{order.shipping_zipcode}}<br>
+                    País: {{order.shipping_country}}<br>
+                    Provincia/Estado: {{order.shipping_province}}
+                  </div>
+                  {% elseif order.shipping_pickup_type == 'pickup' and order.shipping_extra.store_branch %}
+                  <hr class="divider"/>
+                  <h3>📍 Punto de retiro:</h3>
+                  <div class="shipping-box">
+                    {{ order.shipping_extra.store_branch.name }} / {{ order.shipping_extra.store_branch.extra }}
+                  </div>
+                  {% elseif order.shipping_option %}
+                  <div class="shipping-box">{{ order.shipping_option }}</div>
+                  {% endif %}
+
+                  <!-- ─── GARANTÍA ─── -->
+                  <div class="guarantee-box">
+                    🛡️ <strong style="color:#7a5c1e;">Nuestra garantía de satisfacción de 7 días</strong><br>
+                    Si sentís que el contenido no fue lo que esperabas, respondé este correo y lo resolvemos.
+                    Tu confianza es lo más importante para nosotros.
+                  </div>
+
+                  <!-- ─── CTA SEGUIMIENTO ─── -->
+                  {% if order.statusPageUrl %}
+                  <hr class="divider"/>
+                  <div class="cta-wrapper">
+                    <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ order.statusPageUrl }}" style="height:50px;v-text-anchor:middle;width:260px;" arcsize="5%" strokecolor="#c9a84c" fillcolor="#c9a84c">
+                      <w:anchorlock/>
+                      <center style="color:#ffffff;font-family:Verdana,sans-serif;font-size:13px;font-weight:bold;">Seguí el estado de tu pedido</center>
+                    </v:roundrect>
+                    <![endif]-->
+                    <a href="{{ order.statusPageUrl }}" class="cta-btn" target="_blank"
+                       style="display:inline-block;padding:16px 48px;font-family:Verdana,Geneva,sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;color:#ffffff;background-color:#c9a84c;border-radius:4px;mso-hide:all;">
+                      Seguí el estado de tu pedido
+                    </a>
+                    <p class="cta-sub">Podés ver el estado de tu orden en tiempo real</p>
+                  </div>
+                  {% endif %}
+
+                  <!-- ─── CIERRE ─── -->
+                  <hr class="divider"/>
+                  <p style="font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#4a3a22;line-height:1.8;">
+                    Si tenés alguna duda o problema con la descarga, respondé este correo directamente
+                    — nuestro equipo está encantado de ayudarte.
+                  </p>
+
+                  <p style="font-family:Georgia,'Times New Roman',serif;font-size:14px;color:#4a3a22;margin-top:20px;line-height:1.8;">
+                    Con cariño,<br>
+                    <strong style="color:#7a5c1e;">El equipo de {{store_name}}</strong>
+                  </p>
+
+                </td>
+              </tr>
+              <!-- ═══ END BODY ═══ -->
+
+            </table>
+          </td>
+        </tr>
+
+        <!-- ═══ FOOTER ═══ -->
+        <tr>
+          <td align="center" valign="top">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
+              <tr>
+                <td valign="top" class="footerContent">
+                  <p class="footer-brand">{{store_name}}</p>
+                  <p>Si no realizaste esta compra o simplemente estabas probando nuestro sitio,<br>por favor ignorá este correo.</p>
+                  <p style="margin-top:10px;">
+                    ¿Necesitás ayuda? Respondé este email o escribinos a través de nuestras redes.
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- ═══ END FOOTER ═══ -->
+
+      </table>
+    </td>
+  </tr>
+</table>
+</center>
+</body>
+</html>

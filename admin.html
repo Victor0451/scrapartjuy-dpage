@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin — ScrapArtJuy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream:      #fdf6e3;
+      --cream-dark: #f5edd8;
+      --gold:       #c9a84c;
+      --gold-light: #e8c96a;
+      --gold-dark:  #a07830;
+      --brown:      #3a2e1e;
+      --brown-mid:  #5a4420;
+      --brown-light:#7a5c1e;
+      --text:       #4a3a22;
+      --text-light: #9a8055;
+      --border:     #e5d4a3;
+      --red:        #c0392b;
+      --green:      #27ae60;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream-dark);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* ─── GATE ─── */
+    .gate {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .gate-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 44px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+    }
+
+    .gate-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+
+    .gate-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 32px;
+    }
+
+    /* ─── INPUTS ─── */
+    .field {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 6px;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--cream-dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .field input[readonly] {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 80px;
+      line-height: 1.6;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--brown);
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--brown-light);
+    }
+    .btn-outline:hover { background: var(--gold); color: var(--brown); }
+
+    .btn-danger {
+      background: transparent;
+      border: 2px solid #e0a0a0;
+      color: var(--red);
+      padding: 8px 16px;
+      font-size: 11px;
+    }
+    .btn-danger:hover { background: var(--red); color: #fff; border-color: var(--red); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-light);
+      padding: 8px 16px;
+      font-size: 11px;
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--brown-light); }
+
+    .btn-publish {
+      background: var(--brown);
+      color: var(--gold-light);
+      padding: 14px 36px;
+      font-size: 12px;
+    }
+    .btn-publish:hover { background: var(--brown-mid); }
+    .btn-publish:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ─── APP LAYOUT ─── */
+    .app-header {
+      background: var(--brown);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .app-header-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 2px;
+    }
+
+    .app-header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .publish-status {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .publish-status.ok     { color: #6fcf97; }
+    .publish-status.error  { color: #eb5757; }
+    .publish-status.saving { color: var(--gold-light); }
+
+    .app-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* ─── SECTIONS ─── */
+    .section {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .section-header {
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .section-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+    }
+
+    .section-body {
+      padding: 28px;
+    }
+
+    /* ─── PRODUCT CARDS ─── */
+    .product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-card {
+      background: var(--cream-dark);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .product-card-info {}
+
+    .product-card-nombre {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--brown);
+      margin-bottom: 3px;
+    }
+
+    .product-card-clave {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-light);
+      font-family: monospace;
+      background: rgba(0,0,0,0.05);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .product-card-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(58,46,30,0.6);
+      z-index: 200;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 620px;
+      overflow: hidden;
+      margin: auto;
+    }
+
+    .modal-header {
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--text-light);
+      line-height: 1;
+      padding: 4px;
+    }
+
+    .modal-body {
+      padding: 28px;
+    }
+
+    .modal-footer {
+      padding: 20px 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .benefits-block {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .benefit-row-admin {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 24px 1fr 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .benefit-row-admin:last-child { border-bottom: none; }
+
+    .benefit-num {
+      width: 24px;
+      height: 24px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--brown);
+      flex-shrink: 0;
+    }
+
+    .benefit-row-admin input {
+      width: 100%;
+      padding: 8px 10px;
+      background: var(--cream-dark);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      color: var(--text);
+      outline: none;
+    }
+
+    .benefit-row-admin input:focus { border-color: var(--gold); }
+
+    .bonus-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-light);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .bonus-label input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+    }
+
+    .divider-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin: 24px 0 12px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 560px) {
+      .app-header { padding: 14px 16px; }
+      .section-body { padding: 20px; }
+      .modal-body { padding: 20px; }
+      .benefit-row-admin { grid-template-columns: 24px 1fr; grid-template-rows: auto auto auto; }
+      .field-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ GATE ═══ -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <p class="gate-brand">ScrapArtJuy</p>
+    <p class="gate-title">Panel de administración</p>
+    <div class="field">
+      <label>Contraseña</label>
+      <input type="password" id="pwd-input" placeholder="••••••••"
+             onkeydown="if(event.key==='Enter') unlock()"/>
+    </div>
+    <p id="gate-error" style="display:none;color:#c0392b;font-size:12px;margin-bottom:12px;"></p>
+    <button class="btn btn-primary" onclick="unlock()" style="width:100%;margin-top:4px;">
+      Entrar
+    </button>
+  </div>
+</div>
+
+<!-- ═══ APP ═══ -->
+<div id="app" style="display:none;">
+
+  <!-- Header -->
+  <div class="app-header">
+    <span class="app-header-brand">ScrapArtJuy · Admin</span>
+    <div class="app-header-right">
+      <span class="publish-status" id="publish-status"></span>
+      <button class="btn btn-publish" id="btn-publish" onclick="publicar()">
+        Publicar cambios
+      </button>
+    </div>
+  </div>
+
+  <div class="app-body">
+
+    <!-- CONFIGURACIÓN -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Configuración de la tienda</span>
+      </div>
+      <div class="section-body">
+        <div class="field-row">
+          <div class="field">
+            <label>Nombre de la marca</label>
+            <input type="text" id="cfg-marca" oninput="onConfigChange()"/>
+          </div>
+          <div class="field">
+            <label>Email de contacto</label>
+            <input type="email" id="cfg-email" oninput="onConfigChange()"/>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Instagram (URL completa)</label>
+            <input type="url" id="cfg-instagram" oninput="onConfigChange()"/>
+          </div>
+          <div class="field">
+            <label>TikTok (URL completa)</label>
+            <input type="url" id="cfg-tiktok" oninput="onConfigChange()"/>
+          </div>
+        </div>
+        <div class="field">
+          <label>Facebook (URL completa)</label>
+          <input type="url" id="cfg-facebook" oninput="onConfigChange()"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTOS -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-title">Productos</span>
+        <button class="btn btn-outline" onclick="abrirModal(null)">+ Agregar producto</button>
+      </div>
+      <div class="section-body">
+        <div class="product-list" id="product-list">
+          <div class="empty-state">Cargando productos...</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ MODAL ADD/EDIT ═══ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">Nuevo producto</span>
+      <button class="modal-close" onclick="cerrarModal()">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="field">
+        <label>Clave (SKU en Tienda Nube)</label>
+        <input type="text" id="f-clave"
+               placeholder="ej: mundo-animal-chico (sin espacios, minúsculas)"
+               oninput="this.value=this.value.toLowerCase().replace(/[^a-z0-9-]/g,'')"/>
+        <p style="font-size:11px;color:var(--text-light);margin-top:5px;">
+          Debe coincidir exactamente con el SKU del producto en Tienda Nube.
+        </p>
+      </div>
+
+      <div class="field">
+        <label>Nombre del producto</label>
+        <input type="text" id="f-nombre" placeholder="ej: Mundo Animal CHICO"/>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Link de descarga (Google Drive)</label>
+          <input type="url" id="f-link" placeholder="https://drive.google.com/file/d/.../view?usp=sharing"/>
+        </div>
+        <div class="field">
+          <label>Contraseña del PDF <span style="font-weight:300;text-transform:none;letter-spacing:0;">(opcional)</span></label>
+          <input type="text" id="f-contrasena" placeholder="Dejar vacío si no tiene"/>
+        </div>
+      </div>
+
+      <p class="divider-label">Beneficios (4 ítems)</p>
+      <div class="benefits-block">
+        <div class="benefit-row-admin">
+          <div class="benefit-num">1</div>
+          <input type="text" id="b0-titulo" placeholder="Título del beneficio"/>
+          <input type="text" id="b0-desc"   placeholder="Descripción breve"/>
+          <label class="bonus-label"><input type="checkbox" id="b0-bonus"/> Bonus</label>
+        </div>
+        <div class="benefit-row-admin">
+          <div class="benefit-num">2</div>
+          <input type="text" id="b1-titulo" placeholder="Título del beneficio"/>
+          <input type="text" id="b1-desc"   placeholder="Descripción breve"/>
+          <label class="bonus-label"><input type="checkbox" id="b1-bonus"/> Bonus</label>
+        </div>
+        <div class="benefit-row-admin">
+          <div class="benefit-num">3</div>
+          <input type="text" id="b2-titulo" placeholder="Título del beneficio"/>
+          <input type="text" id="b2-desc"   placeholder="Descripción breve"/>
+          <label class="bonus-label"><input type="checkbox" id="b2-bonus"/> Bonus</label>
+        </div>
+        <div class="benefit-row-admin">
+          <div class="benefit-num">4</div>
+          <input type="text" id="b3-titulo" placeholder="Título del beneficio"/>
+          <input type="text" id="b3-desc"   placeholder="Descripción breve"/>
+          <label class="bonus-label"><input type="checkbox" id="b3-bonus"/> Bonus</label>
+        </div>
+      </div>
+
+      <p class="divider-label">Testimonio</p>
+      <div class="field">
+        <label>Texto del testimonio</label>
+        <textarea id="f-testimonio" placeholder="Lo que dijo un cliente real..."></textarea>
+      </div>
+      <div class="field">
+        <label>Autor</label>
+        <input type="text" id="f-testimonioAutor" placeholder="ej: — María G., clienta verificada"/>
+      </div>
+
+      <p class="divider-label">Upsell</p>
+      <div class="field">
+        <label>Nombre del producto complementario</label>
+        <input type="text" id="f-upsellNombre" placeholder="ej: Pack Avanzado"/>
+      </div>
+      <div class="field">
+        <label>Link del producto complementario</label>
+        <input type="url" id="f-upsellLink" placeholder="https://..."/>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="guardarProducto()">Guardar producto</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ══════════════════════════════════════════════════════
+     ESTADO
+  ══════════════════════════════════════════════════════ */
+  var state    = { config: {}, productos: {} };
+  var editKey  = null;   // null = nuevo, string = editar existente
+  var password = '';
+  var dirty    = false;  // hay cambios sin publicar
+
+  /* ══════════════════════════════════════════════════════
+     AUTENTICACIÓN
+  ══════════════════════════════════════════════════════ */
+  function unlock() {
+    var pwd = document.getElementById('pwd-input').value.trim();
+    if (!pwd) return;
+    password = pwd;
+    sessionStorage.setItem('admin_pwd', pwd);
+    iniciarApp();
+  }
+
+  function iniciarApp() {
+    fetch('productos.json?nocache=' + Date.now())
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        state = data;
+        document.getElementById('gate').style.display = 'none';
+        document.getElementById('app').style.display  = 'block';
+        renderConfig();
+        renderProductList();
+      })
+      .catch(function() {
+        mostrarGateError('No se pudo cargar el catálogo.');
+      });
+  }
+
+  function mostrarGateError(msg) {
+    var el = document.getElementById('gate-error');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  // Auto-login si hay sesión guardada
+  window.addEventListener('DOMContentLoaded', function() {
+    var saved = sessionStorage.getItem('admin_pwd');
+    if (saved) {
+      password = saved;
+      iniciarApp();
+    }
+  });
+
+  /* ══════════════════════════════════════════════════════
+     CONFIGURACIÓN
+  ══════════════════════════════════════════════════════ */
+  function renderConfig() {
+    var c = state.config;
+    document.getElementById('cfg-marca').value     = c.marca     || '';
+    document.getElementById('cfg-email').value     = c.email     || '';
+    document.getElementById('cfg-instagram').value = c.instagram || '';
+    document.getElementById('cfg-tiktok').value    = c.tiktok    || '';
+    document.getElementById('cfg-facebook').value  = c.facebook  || '';
+  }
+
+  function onConfigChange() {
+    state.config.marca     = document.getElementById('cfg-marca').value;
+    state.config.email     = document.getElementById('cfg-email').value;
+    state.config.instagram = document.getElementById('cfg-instagram').value;
+    state.config.tiktok    = document.getElementById('cfg-tiktok').value;
+    state.config.facebook  = document.getElementById('cfg-facebook').value;
+    setDirty(true);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     LISTA DE PRODUCTOS
+  ══════════════════════════════════════════════════════ */
+  function renderProductList() {
+    var container = document.getElementById('product-list');
+    var keys = Object.keys(state.productos);
+
+    if (keys.length === 0) {
+      container.innerHTML = '<div class="empty-state">No hay productos aún. Agregá el primero.</div>';
+      return;
+    }
+
+    container.innerHTML = keys.map(function(key) {
+      var p = state.productos[key];
+      return (
+        '<div class="product-card">' +
+          '<div class="product-card-info">' +
+            '<div class="product-card-nombre">' + escHtml(p.nombre) + '</div>' +
+            '<span class="product-card-clave">' + escHtml(key) + '</span>' +
+          '</div>' +
+          '<div class="product-card-actions">' +
+            '<button class="btn btn-ghost" onclick="abrirModal(\'' + escHtml(key) + '\')">Editar</button>' +
+            '<button class="btn btn-danger" onclick="eliminarProducto(\'' + escHtml(key) + '\')">Eliminar</button>' +
+          '</div>' +
+        '</div>'
+      );
+    }).join('');
+  }
+
+  /* ══════════════════════════════════════════════════════
+     MODAL ADD / EDIT
+  ══════════════════════════════════════════════════════ */
+  function abrirModal(key) {
+    editKey = key;
+    var claveInput = document.getElementById('f-clave');
+
+    if (key === null) {
+      // Nuevo producto: limpiar formulario
+      document.getElementById('modal-title').textContent = 'Nuevo producto';
+      claveInput.value = '';
+      claveInput.readOnly = false;
+      document.getElementById('f-nombre').value     = '';
+      document.getElementById('f-link').value       = '';
+      document.getElementById('f-contrasena').value = '';
+      document.getElementById('f-testimonio').value      = '';
+      document.getElementById('f-testimonioAutor').value = '';
+      document.getElementById('f-upsellNombre').value    = '';
+      document.getElementById('f-upsellLink').value      = '';
+      for (var i = 0; i < 4; i++) {
+        document.getElementById('b' + i + '-titulo').value = '';
+        document.getElementById('b' + i + '-desc').value   = '';
+        document.getElementById('b' + i + '-bonus').checked = false;
+      }
+    } else {
+      // Editar existente: pre-llenar datos
+      var p = state.productos[key];
+      document.getElementById('modal-title').textContent = 'Editar producto';
+      claveInput.value    = key;
+      claveInput.readOnly = true;
+      document.getElementById('f-nombre').value     = p.nombre     || '';
+      document.getElementById('f-link').value       = p.linkDrive  || '';
+      document.getElementById('f-contrasena').value = p.contrasena || '';
+      document.getElementById('f-testimonio').value      = p.testimonio      || '';
+      document.getElementById('f-testimonioAutor').value = p.testimonioAutor || '';
+      document.getElementById('f-upsellNombre').value    = p.upsellNombre    || '';
+      document.getElementById('f-upsellLink').value      = p.upsellLink      || '';
+      var beneficios = p.beneficios || [];
+      for (var i = 0; i < 4; i++) {
+        var b = beneficios[i] || {};
+        document.getElementById('b' + i + '-titulo').value   = b.titulo || '';
+        document.getElementById('b' + i + '-desc').value     = b.desc   || '';
+        document.getElementById('b' + i + '-bonus').checked  = !!b.bonus;
+      }
+    }
+
+    document.getElementById('modal-overlay').classList.add('active');
+  }
+
+  function cerrarModal() {
+    document.getElementById('modal-overlay').classList.remove('active');
+    editKey = null;
+  }
+
+  function guardarProducto() {
+    var clave = document.getElementById('f-clave').value.trim();
+    if (!clave) { alert('La clave del producto es obligatoria.'); return; }
+    if (!/^[a-z0-9-]+$/.test(clave)) {
+      alert('La clave solo puede tener letras minúsculas, números y guiones (-).');
+      return;
+    }
+    if (editKey === null && state.productos[clave]) {
+      alert('Ya existe un producto con esa clave. Usá una diferente.');
+      return;
+    }
+
+    var beneficios = [];
+    for (var i = 0; i < 4; i++) {
+      var titulo = document.getElementById('b' + i + '-titulo').value.trim();
+      var desc   = document.getElementById('b' + i + '-desc').value.trim();
+      var bonus  = document.getElementById('b' + i + '-bonus').checked;
+      if (titulo || desc) {
+        var b = { titulo: titulo, desc: desc };
+        if (bonus) b.bonus = true;
+        beneficios.push(b);
+      }
+    }
+
+    state.productos[clave] = {
+      nombre:          document.getElementById('f-nombre').value.trim(),
+      linkDrive:       document.getElementById('f-link').value.trim(),
+      contrasena:      document.getElementById('f-contrasena').value.trim(),
+      beneficios:      beneficios,
+      testimonio:      document.getElementById('f-testimonio').value.trim(),
+      testimonioAutor: document.getElementById('f-testimonioAutor').value.trim(),
+      upsellNombre:    document.getElementById('f-upsellNombre').value.trim(),
+      upsellLink:      document.getElementById('f-upsellLink').value.trim()
+    };
+
+    cerrarModal();
+    renderProductList();
+    setDirty(true);
+  }
+
+  function eliminarProducto(key) {
+    if (!confirm('¿Eliminar el producto "' + state.productos[key].nombre + '"? Esta acción no se puede deshacer.')) return;
+    delete state.productos[key];
+    renderProductList();
+    setDirty(true);
+  }
+
+  /* ══════════════════════════════════════════════════════
+     PUBLICAR
+  ══════════════════════════════════════════════════════ */
+  function publicar() {
+    var btn = document.getElementById('btn-publish');
+    btn.disabled = true;
+    setStatus('saving', 'Publicando...');
+
+    fetch('/api/guardar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: password, data: state })
+    })
+    .then(function(r) { return r.json().then(function(d) { return { ok: r.ok, data: d }; }); })
+    .then(function(res) {
+      if (res.ok) {
+        setStatus('ok', 'Publicado ✓ — cambios visibles en ~1 min');
+        setDirty(false);
+      } else {
+        setStatus('error', res.data.error || 'Error al publicar');
+        if (res.data.error && res.data.error.includes('contraseña')) {
+          sessionStorage.removeItem('admin_pwd');
+        }
+      }
+    })
+    .catch(function() {
+      setStatus('error', 'Error de red. Intentá de nuevo.');
+    })
+    .finally(function() {
+      btn.disabled = false;
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════
+     HELPERS
+  ══════════════════════════════════════════════════════ */
+  function setStatus(type, msg) {
+    var el = document.getElementById('publish-status');
+    el.className = 'publish-status ' + type;
+    el.textContent = msg;
+  }
+
+  function setDirty(val) {
+    dirty = val;
+    if (val) setStatus('', 'Cambios sin publicar');
+    else setStatus('', '');
+  }
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  // Advertir antes de salir si hay cambios sin publicar
+  window.addEventListener('beforeunload', function(e) {
+    if (dirty) {
+      e.preventDefault();
+      e.returnValue = '';
+    }
+  });
+
+  // Cerrar modal al hacer clic fuera
+  document.getElementById('modal-overlay').addEventListener('click', function(e) {
+    if (e.target === this) cerrarModal();
+  });
+</script>
+
+</body>
+</html>

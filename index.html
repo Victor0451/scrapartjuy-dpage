@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tu descarga está lista — [Nombre de tu marca]</title>
+  <title>Tu descarga está lista</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -515,6 +515,99 @@
       margin: 14px auto;
     }
 
+    /* ─── PASSWORD BOX ─── */
+    .password-box {
+      display: none;
+      margin-top: 20px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.45);
+      border-radius: 10px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .password-box .pwd-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+
+    .password-box .pwd-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .password-box .pwd-value {
+      font-family: monospace;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #fff;
+      background: rgba(0,0,0,0.25);
+      padding: 8px 20px;
+      border-radius: 6px;
+    }
+
+    .password-box .pwd-copy {
+      background: rgba(201,168,76,0.3);
+      border: 1px solid rgba(201,168,76,0.5);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .password-box .pwd-copy:hover {
+      background: rgba(201,168,76,0.5);
+    }
+
+    .password-box .pwd-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 10px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ─── ERROR STATE ─── */
+    .error-screen {
+      display: none;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .error-screen .error-icon {
+      font-size: 52px;
+      margin-bottom: 24px;
+    }
+
+    .error-screen h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+
+    .error-screen p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.7;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 560px) {
       .hero-card { padding: 40px 24px 36px; }
@@ -531,143 +624,240 @@
 
 <div class="wrapper">
 
-  <!-- BRAND -->
-  <div class="header fade-up">
-    <span class="brand-name">[Nombre de tu marca]</span>
-  </div>
-
-  <!-- ═══ HERO ═══ -->
-  <div class="hero-card fade-up delay-1">
-    <div class="hero-icon-wrap">
-      <div class="hero-icon">📄</div>
-    </div>
-    <div class="hero-badge">✦ Tu compra fue confirmada ✦</div>
-    <h1 class="hero-title">¡Tu descarga<br>está lista!</h1>
-    <p class="hero-sub">
-      Gracias por confiar en nosotros. Hacé clic en el botón de abajo
-      y accedé a tu contenido de forma inmediata.
-    </p>
-    <a href="[LINK DIRECTO AL PDF EN GOOGLE DRIVE]" class="cta-btn" target="_blank">
-      ⬇ &nbsp;Descargar mi PDF ahora
-    </a>
-    <p class="cta-meta">Acceso instantáneo · Sin registro · Descarga segura</p>
-  </div>
-
-  <!-- ═══ MAIN CARD ═══ -->
-  <div class="main-card fade-up delay-2">
-
-    <!-- PASOS -->
-    <div class="card-section">
-      <p class="section-label">Cómo acceder</p>
-      <div class="steps-list">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <strong>Hacé clic en el botón de arriba</strong>
-            <span>Te abrirá Google Drive directamente. No necesitás una cuenta de Google para descargar.</span>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <strong>Guardá el archivo en tu dispositivo</strong>
-            <span>En el ícono de descarga (↓) de Google Drive. Funciona en celular, tablet y computadora.</span>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <strong>Abrí el PDF y empezá hoy mismo</strong>
-            <span>El contenido está ordenado para que veas resultados desde las primeras páginas.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BENEFICIOS -->
-    <div class="card-section">
-      <p class="section-label">Lo que encontrarás adentro</p>
-      <div class="benefits-grid">
-        <div class="benefit-item">
-          <div class="benefit-check">✓</div>
-          <p><strong>Beneficio 1</strong>Descripción corta del resultado que el cliente va a obtener.</p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-check">✓</div>
-          <p><strong>Beneficio 2</strong>Orientado al resultado tangible, no al proceso.</p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-check">✓</div>
-          <p><strong>Beneficio 3</strong>Resuelve un dolor o frustración específica del cliente.</p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-check">★</div>
-          <p><strong>Bonus incluido</strong>Un recurso extra que supera sus expectativas.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- REVIEW -->
-    <div class="card-section">
-      <p class="section-label">Lo que dicen nuestros clientes</p>
-      <div class="review-card">
-        <div class="review-quote">"</div>
-        <p class="review-text">
-          Apliqué lo del capítulo 2 el mismo día que lo descargué y los resultados
-          me sorprendieron. No esperaba algo tan completo y tan fácil de aplicar.
-        </p>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-author">— María G., clienta verificada</p>
-      </div>
-    </div>
-
-    <!-- GARANTÍA -->
-    <div class="card-section">
-      <div class="guarantee">
-        <div class="guarantee-icon">🛡️</div>
-        <div class="guarantee-text">
-          <strong>Garantía de satisfacción de 7 días</strong>
-          <p>Si sentís que el contenido no fue lo que esperabas, escribinos y lo resolvemos.
-          Tu confianza es lo más importante para nosotros.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  <!-- ═══ END MAIN CARD ═══ -->
-
-  <!-- ═══ UPSELL ═══ -->
-  <div class="upsell-card fade-up delay-3">
-    <p class="eyebrow">✦ Oferta exclusiva para clientes ✦</p>
-    <h3>¿Querés ir un paso más allá?</h3>
+  <!-- ═══ ERROR: producto no encontrado ═══ -->
+  <div class="error-screen" id="error-screen">
+    <div class="error-icon">🔍</div>
+    <h2>Enlace no válido</h2>
     <p>
-      Nuestros clientes que combinan este PDF con <strong>[nombre de otro producto]</strong>
-      obtienen resultados hasta 3 veces más rápido. Por ser cliente, tenés acceso
-      a un precio especial por tiempo limitado.
+      Este enlace de descarga no corresponde a ningún producto.<br>
+      Revisá el email de confirmación o escribinos a
+      <a href="mailto:[TU-EMAIL]" id="error-email">[TU-EMAIL]</a>.
     </p>
-    <a href="[LINK PRODUCTO COMPLEMENTARIO]" class="upsell-btn">Ver oferta exclusiva →</a>
   </div>
 
-  <!-- ═══ FOOTER ═══ -->
-  <div class="footer fade-up delay-4">
-    <p class="footer-brand">[Nombre de tu marca]</p>
-    <div class="footer-divider"></div>
-    <p>
-      ¿Tenés alguna duda? Escribinos a
-      <a href="mailto:hola@tumarca.com">hola@tumarca.com</a>
-    </p>
-    <p style="margin-top:6px;">
-      <a href="#">Instagram</a> &nbsp;·&nbsp;
-      <a href="#">Facebook</a> &nbsp;·&nbsp;
-      <a href="#">TikTok</a>
-    </p>
-    <p style="margin-top:14px;font-size:11px;color:#c0a870;">
-      Esta página es de uso exclusivo para clientes de [Tu Marca].<br>
-      © 2025 [Tu Marca]. Todos los derechos reservados.
-    </p>
+  <!-- ═══ CONTENIDO PRINCIPAL ═══ -->
+  <div id="main-content">
+
+    <!-- BRAND -->
+    <div class="header fade-up">
+      <span class="brand-name" id="brand-name">[Nombre de tu marca]</span>
+    </div>
+
+    <!-- ═══ HERO ═══ -->
+    <div class="hero-card fade-up delay-1">
+      <div class="hero-icon-wrap">
+        <div class="hero-icon">📄</div>
+      </div>
+      <div class="hero-badge">✦ Tu compra fue confirmada ✦</div>
+      <h1 class="hero-title">¡Tu descarga<br>está lista!</h1>
+      <p class="hero-sub">
+        Gracias por confiar en nosotros. Ya tenés acceso a
+        <strong id="hero-product-name"></strong>.
+        Hacé clic en el botón de abajo para descargarlo ahora.
+      </p>
+      <a href="#" id="cta-link" class="cta-btn" target="_blank" rel="noopener">
+        ⬇ &nbsp;Descargar mi PDF ahora
+      </a>
+      <p class="cta-meta">Acceso instantáneo · Sin registro · Descarga segura</p>
+
+      <!-- Contraseña del PDF (visible solo si el producto la tiene) -->
+      <div class="password-box" id="password-box">
+        <p class="pwd-label">🔑 Contraseña para abrir el PDF</p>
+        <div class="pwd-row">
+          <span class="pwd-value" id="pwd-value"></span>
+          <button class="pwd-copy" id="pwd-copy" onclick="copiarContrasena()">Copiar</button>
+        </div>
+        <p class="pwd-note">Guardá esta contraseña — la vas a necesitar al abrir el archivo.</p>
+      </div>
+    </div>
+
+    <!-- ═══ MAIN CARD ═══ -->
+    <div class="main-card fade-up delay-2">
+
+      <!-- PASOS -->
+      <div class="card-section">
+        <p class="section-label">Cómo acceder</p>
+        <div class="steps-list">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <strong>Hacé clic en el botón de arriba</strong>
+              <span>Te abrirá Google Drive directamente. No necesitás una cuenta de Google para descargar.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <strong>Guardá el archivo en tu dispositivo</strong>
+              <span>En el ícono de descarga (↓) de Google Drive. Funciona en celular, tablet y computadora.</span>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <strong>Abrí el PDF y empezá hoy mismo</strong>
+              <span>El contenido está ordenado para que veas resultados desde las primeras páginas.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BENEFICIOS -->
+      <div class="card-section">
+        <p class="section-label">Lo que encontrarás adentro</p>
+        <div class="benefits-grid" id="benefits-grid">
+          <!-- Generado por JS -->
+        </div>
+      </div>
+
+      <!-- REVIEW -->
+      <div class="card-section">
+        <p class="section-label">Lo que dicen nuestros clientes</p>
+        <div class="review-card">
+          <div class="review-quote">"</div>
+          <p class="review-text" id="review-text"></p>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-author" id="review-author"></p>
+        </div>
+      </div>
+
+      <!-- GARANTÍA -->
+      <div class="card-section">
+        <div class="guarantee">
+          <div class="guarantee-icon">🛡️</div>
+          <div class="guarantee-text">
+            <strong>Garantía de satisfacción de 7 días</strong>
+            <p>Si sentís que el contenido no fue lo que esperabas, escribinos y lo resolvemos.
+            Tu confianza es lo más importante para nosotros.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- ═══ END MAIN CARD ═══ -->
+
+    <!-- ═══ UPSELL ═══ -->
+    <div class="upsell-card fade-up delay-3">
+      <p class="eyebrow">✦ Oferta exclusiva para clientes ✦</p>
+      <h3>¿Querés ir un paso más allá?</h3>
+      <p>
+        Nuestros clientes que combinan este PDF con <strong id="upsell-nombre"></strong>
+        obtienen resultados hasta 3 veces más rápido. Por ser cliente, tenés acceso
+        a un precio especial por tiempo limitado.
+      </p>
+      <a href="#" id="upsell-link" class="upsell-btn">Ver oferta exclusiva →</a>
+    </div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <div class="footer fade-up delay-4">
+      <p class="footer-brand" id="footer-brand">[Nombre de tu marca]</p>
+      <div class="footer-divider"></div>
+      <p>
+        ¿Tenés alguna duda? Escribinos a
+        <a href="mailto:[TU-EMAIL]" id="footer-email">[TU-EMAIL]</a>
+      </p>
+      <p style="margin-top:6px;">
+        <a href="#" id="link-instagram">Instagram</a> &nbsp;·&nbsp;
+        <a href="#" id="link-facebook">Facebook</a> &nbsp;·&nbsp;
+        <a href="#" id="link-tiktok">TikTok</a>
+      </p>
+      <p style="margin-top:14px;font-size:11px;color:#c0a870;">
+        Esta página es de uso exclusivo para clientes de <span id="footer-brand-copy">[Tu Marca]</span>.<br>
+        © <span id="footer-year"></span> <span id="footer-brand-rights">[Tu Marca]</span>. Todos los derechos reservados.
+      </p>
+    </div>
+
   </div>
+  <!-- ═══ END MAIN CONTENT ═══ -->
 
 </div>
+
+<script>
+  /* ══════════════════════════════════════════════════════════════
+     INICIALIZACIÓN
+  ══════════════════════════════════════════════════════════════ */
+  fetch('productos.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      window.CONFIG    = data.config;
+      window.PRODUCTOS = data.productos;
+      init();
+    })
+    .catch(function() {
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('error-screen').style.display = 'block';
+    });
+
+  function init() {
+    // Año dinámico en el footer
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Datos globales de la tienda
+    var m = CONFIG.marca;
+    var e = CONFIG.email;
+    document.getElementById('brand-name').textContent        = m;
+    document.getElementById('footer-brand').textContent      = m;
+    document.getElementById('footer-brand-copy').textContent = m;
+    document.getElementById('footer-brand-rights').textContent = m;
+    document.getElementById('footer-email').textContent      = e;
+    document.getElementById('footer-email').href             = 'mailto:' + e;
+    document.getElementById('error-email').textContent       = e;
+    document.getElementById('error-email').href              = 'mailto:' + e;
+    document.getElementById('link-instagram').href = CONFIG.instagram;
+    document.getElementById('link-facebook').href  = CONFIG.facebook;
+    document.getElementById('link-tiktok').href    = CONFIG.tiktok;
+
+    // Leer el parámetro ?id= de la URL
+    var params = new URLSearchParams(window.location.search);
+    var id     = params.get('id');
+    var prod   = id ? PRODUCTOS[id] : null;
+
+    if (!prod) {
+      // Producto no encontrado: mostrar pantalla de error
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('error-screen').style.display = 'block';
+      document.title = 'Enlace no válido — ' + m;
+      return;
+    }
+
+    // Título de la página
+    document.title = 'Tu descarga está lista — ' + prod.nombre;
+
+    // Datos del producto
+    document.getElementById('hero-product-name').textContent = prod.nombre;
+    document.getElementById('cta-link').href                 = prod.linkDrive;
+    document.getElementById('review-text').textContent       = prod.testimonio;
+    document.getElementById('review-author').textContent     = prod.testimonioAutor;
+    document.getElementById('upsell-nombre').textContent     = prod.upsellNombre;
+    document.getElementById('upsell-link').href              = prod.upsellLink;
+
+    // Contraseña del PDF (solo si existe)
+    if (prod.contrasena) {
+      document.getElementById('pwd-value').textContent       = prod.contrasena;
+      document.getElementById('password-box').style.display = 'block';
+    }
+
+    // Beneficios (generados dinámicamente)
+    var grid = document.getElementById('benefits-grid');
+    grid.innerHTML = prod.beneficios.map(function(b) {
+      return (
+        '<div class="benefit-item">' +
+          '<div class="benefit-check">' + (b.bonus ? '★' : '✓') + '</div>' +
+          '<p><strong>' + b.titulo + '</strong>' + b.desc + '</p>' +
+        '</div>'
+      );
+    }).join('');
+  })();
+
+  function copiarContrasena() {
+    var pwd = document.getElementById('pwd-value').textContent;
+    navigator.clipboard.writeText(pwd).then(function() {
+      var btn = document.getElementById('pwd-copy');
+      btn.textContent = '¡Copiada!';
+      setTimeout(function() { btn.textContent = 'Copiar'; }, 2000);
+    });
+  }
+</script>
 
 </body>
 </html>
