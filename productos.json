@@ -8,14 +8,27 @@
   },
   "productos": {
     "mundo-animal-chico": {
-      "nombre": "Mundo Animal CHICO",
+      "nombre": "Mundo Animal CHICO f",
       "linkDrive": "https://drive.google.com/REEMPLAZAR_CON_LINK_REAL",
       "contrasena": "",
       "beneficios": [
-        { "titulo": "Beneficio 1", "desc": "Descripción del resultado que el cliente va a obtener." },
-        { "titulo": "Beneficio 2", "desc": "Orientado al resultado tangible, no al proceso." },
-        { "titulo": "Beneficio 3", "desc": "Resuelve un dolor o frustración específica del cliente." },
-        { "titulo": "Bonus", "desc": "Un recurso extra que supera sus expectativas.", "bonus": true }
+        {
+          "titulo": "Beneficio 1",
+          "desc": "Descripción del resultado que el cliente va a obtener."
+        },
+        {
+          "titulo": "Beneficio 2",
+          "desc": "Orientado al resultado tangible, no al proceso."
+        },
+        {
+          "titulo": "Beneficio 3",
+          "desc": "Resuelve un dolor o frustración específica del cliente."
+        },
+        {
+          "titulo": "Bonus",
+          "desc": "Un recurso extra que supera sus expectativas.",
+          "bonus": true
+        }
       ],
       "testimonio": "Texto del testimonio real de un cliente.",
       "testimonioAutor": "— Nombre, clienta verificada",
@@ -27,10 +40,23 @@
       "linkDrive": "https://drive.google.com/REEMPLAZAR_CON_LINK_REAL",
       "contrasena": "",
       "beneficios": [
-        { "titulo": "Beneficio 1", "desc": "Descripción del resultado que el cliente va a obtener." },
-        { "titulo": "Beneficio 2", "desc": "Orientado al resultado tangible, no al proceso." },
-        { "titulo": "Beneficio 3", "desc": "Resuelve un dolor o frustración específica del cliente." },
-        { "titulo": "Bonus", "desc": "Un recurso extra que supera sus expectativas.", "bonus": true }
+        {
+          "titulo": "Beneficio 1",
+          "desc": "Descripción del resultado que el cliente va a obtener."
+        },
+        {
+          "titulo": "Beneficio 2",
+          "desc": "Orientado al resultado tangible, no al proceso."
+        },
+        {
+          "titulo": "Beneficio 3",
+          "desc": "Resuelve un dolor o frustración específica del cliente."
+        },
+        {
+          "titulo": "Bonus",
+          "desc": "Un recurso extra que supera sus expectativas.",
+          "bonus": true
+        }
       ],
       "testimonio": "Texto del testimonio real de un cliente.",
       "testimonioAutor": "— Nombre, cliente verificado",
