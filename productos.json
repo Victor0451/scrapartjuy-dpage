@@ -8,9 +8,9 @@
   },
   "productos": {
     "mundo-animal-chico": {
-      "nombre": "Mundo Animal CHICO f",
-      "linkDrive": "https://drive.google.com/REEMPLAZAR_CON_LINK_REAL",
-      "contrasena": "",
+      "nombre": "Mundo Animal CHICO",
+      "linkDrive": "https://drive.google.com/file/d/1_AjTwSPisFtBQXyfgs1j9HJzLVQsGjbi/view?usp=drivesdk",
+      "contrasena": "Scrap1",
       "beneficios": [
         {
           "titulo": "Beneficio 1",
@@ -37,8 +37,8 @@
     },
     "mundo-animal-grande": {
       "nombre": "Mundo Animal GRANDE",
-      "linkDrive": "https://drive.google.com/REEMPLAZAR_CON_LINK_REAL",
-      "contrasena": "",
+      "linkDrive": "https://drive.google.com/file/d/1aw7n1XYnOeXz6MIdSj2RMnkRciKJEwau/view?usp=drivesdk",
+      "contrasena": "Scrap1",
       "beneficios": [
         {
           "titulo": "Beneficio 1",
