@@ -7,61 +7,25 @@
     "tiktok": "https://tiktok.com/@scrapartjuy"
   },
   "productos": {
-    "mundo-animal-chico": {
-      "nombre": "Mundo Animal CHICO",
-      "linkDrive": "https://drive.google.com/file/d/1_AjTwSPisFtBQXyfgs1j9HJzLVQsGjbi/view?usp=drivesdk",
-      "contrasena": "Scrap1",
-      "beneficios": [
-        {
-          "titulo": "Beneficio 1",
-          "desc": "Descripción del resultado que el cliente va a obtener."
-        },
-        {
-          "titulo": "Beneficio 2",
-          "desc": "Orientado al resultado tangible, no al proceso."
-        },
-        {
-          "titulo": "Beneficio 3",
-          "desc": "Resuelve un dolor o frustración específica del cliente."
-        },
-        {
-          "titulo": "Bonus",
-          "desc": "Un recurso extra que supera sus expectativas.",
-          "bonus": true
-        }
-      ],
-      "testimonio": "Texto del testimonio real de un cliente.",
-      "testimonioAutor": "— Nombre, clienta verificada",
-      "upsellNombre": "Nombre del producto complementario",
-      "upsellLink": "https://scrapartjuy.com/"
-    },
-    "mundo-animal-grande": {
-      "nombre": "Mundo Animal GRANDE",
+    "animals01": {
+      "nombre": "Colección Mundo Animal | Stickers GRANDES",
       "linkDrive": "https://drive.google.com/file/d/1aw7n1XYnOeXz6MIdSj2RMnkRciKJEwau/view?usp=drivesdk",
       "contrasena": "Scrap1",
-      "beneficios": [
-        {
-          "titulo": "Beneficio 1",
-          "desc": "Descripción del resultado que el cliente va a obtener."
-        },
-        {
-          "titulo": "Beneficio 2",
-          "desc": "Orientado al resultado tangible, no al proceso."
-        },
-        {
-          "titulo": "Beneficio 3",
-          "desc": "Resuelve un dolor o frustración específica del cliente."
-        },
-        {
-          "titulo": "Bonus",
-          "desc": "Un recurso extra que supera sus expectativas.",
-          "bonus": true
-        }
-      ],
-      "testimonio": "Texto del testimonio real de un cliente.",
-      "testimonioAutor": "— Nombre, cliente verificado",
-      "upsellNombre": "Nombre del producto complementario",
-      "upsellLink": "https://scrapartjuy.com/"
+      "beneficios": [],
+      "testimonio": "",
+      "testimonioAutor": "",
+      "upsellNombre": "",
+      "upsellLink": ""
+    },
+    "animals02": {
+      "nombre": "Colección Mundo Animal | Stickers CHICOS",
+      "linkDrive": "https://drive.google.com/file/d/1_AjTwSPisFtBQXyfgs1j9HJzLVQsGjbi/view?usp=drivesdk",
+      "contrasena": "Scrap1",
+      "beneficios": [],
+      "testimonio": "",
+      "testimonioAutor": "",
+      "upsellNombre": "",
+      "upsellLink": ""
     }
   }
 }
