@@ -19,7 +19,7 @@
     },
     "animals02": {
       "nombre": "Colección Mundo Animal | Stickers CHICOS",
-      "linkDrive": "https://drive.google.com/file/d/1GAZ1cNXjVqV3BqmnxsV0OEC-I6izfP3q/view?usp=drivesdk",
+      "linkDrive": "https://drive.google.com/file/d/1wNs4w7PwwB9rkrpjCl6L8E-mzUTCHY9E/view?usp=drive_link",
       "contrasena": "Scrap1",
       "beneficios": [],
       "testimonio": "",
@@ -60,6 +60,46 @@
     "letters02": {
       "nombre": "Colección Letras y Números | Stickers CHICOS",
       "linkDrive": "https://drive.google.com/file/d/1-Y4qkKpVXOunk1ET9NuiDfQ66eSbmlGT/view?usp=drivesdk",
+      "contrasena": "Scrap1",
+      "beneficios": [],
+      "testimonio": "",
+      "testimonioAutor": "",
+      "upsellNombre": "",
+      "upsellLink": ""
+    },
+    "butterfly01": {
+      "nombre": "Colección Mariposas | Stickers GRANDES",
+      "linkDrive": "https://drive.google.com/file/d/115JX4tv5SjyOMJO7mZF2_yGD0wRw1UdZ/view?usp=drive_link",
+      "contrasena": "Scrap1",
+      "beneficios": [],
+      "testimonio": "",
+      "testimonioAutor": "",
+      "upsellNombre": "",
+      "upsellLink": ""
+    },
+    "butterfly02": {
+      "nombre": "Colección Mariposas | Stickers CHICOS",
+      "linkDrive": "https://drive.google.com/file/d/1QpuD8_pIp9_7AUWww6wZCWTWyc9wyRbD/view?usp=drive_link",
+      "contrasena": "Scrap1",
+      "beneficios": [],
+      "testimonio": "",
+      "testimonioAutor": "",
+      "upsellNombre": "",
+      "upsellLink": ""
+    },
+    "star01": {
+      "nombre": "Colección Estrellas",
+      "linkDrive": "https://drive.google.com/file/d/1M_z8aydpl9DfH6_rOGTb4SASnpMD12Ok/view?usp=drive_link",
+      "contrasena": "Scrap1",
+      "beneficios": [],
+      "testimonio": "",
+      "testimonioAutor": "",
+      "upsellNombre": "",
+      "upsellLink": ""
+    },
+    "heart01": {
+      "nombre": "Colección Corazones",
+      "linkDrive": "https://drive.google.com/file/d/1LRm3vSA09-Q0sOfmX8JisGiz_1cm4--O/view?usp=drive_link",
       "contrasena": "Scrap1",
       "beneficios": [],
       "testimonio": "",
